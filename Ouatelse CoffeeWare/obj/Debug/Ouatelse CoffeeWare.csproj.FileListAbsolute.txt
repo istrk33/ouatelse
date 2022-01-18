@@ -1,0 +1,18 @@
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\Ouatelse CoffeeWare.exe.config
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\Ouatelse CoffeeWare.exe
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\Ouatelse CoffeeWare.pdb
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\EntityFramework.dll
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\EntityFramework.xml
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.csprojAssemblyReference.cache
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse_CoffeeWare.Form1.resources
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse_CoffeeWare.GESTIONCLIENT.resources
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse_CoffeeWare.Properties.Resources.resources
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.csproj.GenerateResource.cache
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.csproj.CoreCompileInputs.cache
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.csproj.CopyComplete
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.exe
+C:\Users\pierr\Desktop\Pierre\IUT\PT4\s4p2d-e3\Ouatelse CoffeeWare\obj\Debug\Ouatelse CoffeeWare.pdb

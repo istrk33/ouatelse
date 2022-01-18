@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OUATELSEModelStoreContainer" CdmEntityContainer="OUATELSEEntities">
+    <EntitySetMapping Name="CLIENTs">
+      <EntityTypeMapping TypeName="OUATELSEModel.CLIENT">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="nomPrenom" ColumnName="nomPrenom" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="idMyVille" ColumnName="idMyVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONGEs">
+      <EntityTypeMapping TypeName="OUATELSEModel.CONGE">
+        <MappingFragment StoreEntitySet="CONGE">
+          <ScalarProperty Name="idConge" ColumnName="idConge" />
+          <ScalarProperty Name="dateHeureDebut" ColumnName="dateHeureDebut" />
+          <ScalarProperty Name="dateHeureFin" ColumnName="dateHeureFin" />
+          <ScalarProperty Name="etat" ColumnName="etat" />
+          <ScalarProperty Name="idMySalarie" ColumnName="idMySalarie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contients">
+      <EntityTypeMapping TypeName="OUATELSEModel.contient">
+        <MappingFragment StoreEntitySet="contient">
+          <ScalarProperty Name="idMyMagasin" ColumnName="idMyMagasin" />
+          <ScalarProperty Name="idMyProduit" ColumnName="idMyProduit" />
+          <ScalarProperty Name="idCommande" ColumnName="idCommande" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOURNISSEURs">
+      <EntityTypeMapping TypeName="OUATELSEModel.FOURNISSEUR">
+        <MappingFragment StoreEntitySet="FOURNISSEUR">
+          <ScalarProperty Name="idFournisseur" ColumnName="idFournisseur" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="idMyVille" ColumnName="idMyVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENREs">
+      <EntityTypeMapping TypeName="OUATELSEModel.GENRE">
+        <MappingFragment StoreEntitySet="GENRE">
+          <ScalarProperty Name="idGenre" ColumnName="idGenre" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAGASINs">
+      <EntityTypeMapping TypeName="OUATELSEModel.MAGASIN">
+        <MappingFragment StoreEntitySet="MAGASIN">
+          <ScalarProperty Name="motDePasse" ColumnName="motDePasse" />
+          <ScalarProperty Name="idMagasin" ColumnName="idMagasin" />
+          <ScalarProperty Name="nomMagasin" ColumnName="nomMagasin" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+          <ScalarProperty Name="idMyVille" ColumnName="idMyVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PANIERs">
+      <EntityTypeMapping TypeName="OUATELSEModel.PANIER">
+        <MappingFragment StoreEntitySet="PANIER">
+          <ScalarProperty Name="idCommande" ColumnName="idCommande" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="idMySalarie" ColumnName="idMySalarie" />
+          <ScalarProperty Name="idMyClient" ColumnName="idMyClient" />
+          <ScalarProperty Name="dateHeurePanier" ColumnName="dateHeurePanier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUITs">
+      <EntityTypeMapping TypeName="OUATELSEModel.PRODUIT">
+        <MappingFragment StoreEntitySet="PRODUIT">
+          <ScalarProperty Name="idProduit" ColumnName="idProduit" />
+          <ScalarProperty Name="nomProduit" ColumnName="nomProduit" />
+          <ScalarProperty Name="idMyGenre" ColumnName="idMyGenre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEs">
+      <EntityTypeMapping TypeName="OUATELSEModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARIEs">
+      <EntityTypeMapping TypeName="OUATELSEModel.SALARIE">
+        <MappingFragment StoreEntitySet="SALARIE">
+          <ScalarProperty Name="idSalarie" ColumnName="idSalarie" />
+          <ScalarProperty Name="nomPrenom" ColumnName="nomPrenom" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="motDePasse" ColumnName="motDePasse" />
+          <ScalarProperty Name="idMyVille" ColumnName="idMyVille" />
+          <ScalarProperty Name="idMyRole" ColumnName="idMyRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKs">
+      <EntityTypeMapping TypeName="OUATELSEModel.STOCK">
+        <MappingFragment StoreEntitySet="STOCK">
+          <ScalarProperty Name="idMyMagasin" ColumnName="idMyMagasin" />
+          <ScalarProperty Name="idMyProduit" ColumnName="idMyProduit" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="quantiteStock" ColumnName="quantiteStock" />
+          <ScalarProperty Name="etatStock" ColumnName="etatStock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="travailles">
+      <EntityTypeMapping TypeName="OUATELSEModel.travaille">
+        <MappingFragment StoreEntitySet="travaille">
+          <ScalarProperty Name="idMagasin" ColumnName="idMagasin" />
+          <ScalarProperty Name="dateDebutContrat" ColumnName="dateDebutContrat" />
+          <ScalarProperty Name="dateFinContrat" ColumnName="dateFinContrat" />
+          <ScalarProperty Name="idSalarie" ColumnName="idSalarie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VILLEs">
+      <EntityTypeMapping TypeName="OUATELSEModel.VILLE">
+        <MappingFragment StoreEntitySet="VILLE">
+          <ScalarProperty Name="idVille" ColumnName="idVille" />
+          <ScalarProperty Name="nomVille" ColumnName="nomVille" />
+          <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="fournit" TypeName="OUATELSEModel.fournit" StoreEntitySet="fournit">
+      <EndProperty Name="STOCK">
+        <ScalarProperty Name="idMyMagasin" ColumnName="idMyMagasin" />
+        <ScalarProperty Name="idMyProduit" ColumnName="idMyProduit" />
+      </EndProperty>
+      <EndProperty Name="FOURNISSEUR">
+        <ScalarProperty Name="idFournisseur" ColumnName="idFournisseur" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

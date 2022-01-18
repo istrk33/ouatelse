@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OUATELSEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomPrenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMyVille" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VILLE" Relationship="Self.FK__CLIENT__idMyVill__4222D4EF" FromRole="CLIENT" ToRole="VILLE" />
+    <NavigationProperty Name="PANIERs" Relationship="Self.FK__PANIER__idMyClie__45F365D3" FromRole="CLIENT" ToRole="PANIER" />
+  </EntityType>
+  <EntityType Name="CONGE">
+    <Key>
+      <PropertyRef Name="idConge" />
+    </Key>
+    <Property Name="idConge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateHeureDebut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dateHeureFin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="etat" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMySalarie" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SALARIE" Relationship="Self.FK__CONGE__idMySalar__48CFD27E" FromRole="CONGE" ToRole="SALARIE" />
+  </EntityType>
+  <EntityType Name="contient">
+    <Key>
+      <PropertyRef Name="idMyMagasin" />
+      <PropertyRef Name="idMyProduit" />
+      <PropertyRef Name="idCommande" />
+    </Key>
+    <Property Name="idMyMagasin" Type="Int32" Nullable="false" />
+    <Property Name="idMyProduit" Type="Int32" Nullable="false" />
+    <Property Name="idCommande" Type="Int32" Nullable="false" />
+    <Property Name="quantite" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STOCK" Relationship="Self.FK__contient__4BAC3F29" FromRole="contient" ToRole="STOCK" />
+    <NavigationProperty Name="PANIER" Relationship="Self.FK__contient__idComm__4CA06362" FromRole="contient" ToRole="PANIER" />
+  </EntityType>
+  <EntityType Name="FOURNISSEUR">
+    <Key>
+      <PropertyRef Name="idFournisseur" />
+    </Key>
+    <Property Name="idFournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMyVille" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VILLE" Relationship="Self.FK__FOURNISSE__idMyV__37A5467C" FromRole="FOURNISSEUR" ToRole="VILLE" />
+    <NavigationProperty Name="STOCKs" Relationship="Self.fournit" FromRole="FOURNISSEUR" ToRole="STOCK" />
+  </EntityType>
+  <EntityType Name="GENRE">
+    <Key>
+      <PropertyRef Name="idGenre" />
+    </Key>
+    <Property Name="idGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="intitule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PRODUITs" Relationship="Self.FK__PRODUIT__idMyGen__2A4B4B5E" FromRole="GENRE" ToRole="PRODUIT" />
+  </EntityType>
+  <EntityType Name="MAGASIN">
+    <Key>
+      <PropertyRef Name="idMagasin" />
+    </Key>
+    <Property Name="idMagasin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomMagasin" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dateCreation" Type="DateTime" Precision="0" />
+    <Property Name="idMyVille" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VILLE" Relationship="Self.FK__MAGASIN__idMyVil__2F10007B" FromRole="MAGASIN" ToRole="VILLE" />
+    <NavigationProperty Name="STOCKs" Relationship="Self.FK__STOCK__idMyMagas__31EC6D26" FromRole="MAGASIN" ToRole="STOCK" />
+    <NavigationProperty Name="travailles" Relationship="Self.FK__travaille__idMag__4F7CD00D" FromRole="MAGASIN" ToRole="travaille" />
+    <Property Name="motDePasse" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PANIER">
+    <Key>
+      <PropertyRef Name="idCommande" />
+    </Key>
+    <Property Name="idCommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prix" Type="Int32" Nullable="false" />
+    <Property Name="idMySalarie" Type="Int32" Nullable="false" />
+    <Property Name="idMyClient" Type="Int32" Nullable="false" />
+    <Property Name="dateHeurePanier" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CLIENT" Relationship="Self.FK__PANIER__idMyClie__45F365D3" FromRole="PANIER" ToRole="CLIENT" />
+    <NavigationProperty Name="contients" Relationship="Self.FK__contient__idComm__4CA06362" FromRole="PANIER" ToRole="contient" />
+    <NavigationProperty Name="SALARIE" Relationship="Self.FK__PANIER__idMySala__44FF419A" FromRole="PANIER" ToRole="SALARIE" />
+  </EntityType>
+  <EntityType Name="PRODUIT">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomProduit" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMyGenre" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GENRE" Relationship="Self.FK__PRODUIT__idMyGen__2A4B4B5E" FromRole="PRODUIT" ToRole="GENRE" />
+    <NavigationProperty Name="STOCKs" Relationship="Self.FK__STOCK__idMyProdu__32E0915F" FromRole="PRODUIT" ToRole="STOCK" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="intitule" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SALARIEs" Relationship="Self.FK__SALARIE__idMyRol__3C69FB99" FromRole="ROLE" ToRole="SALARIE" />
+  </EntityType>
+  <EntityType Name="SALARIE">
+    <Key>
+      <PropertyRef Name="idSalarie" />
+    </Key>
+    <Property Name="idSalarie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomPrenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="motDePasse" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMyVille" Type="Int32" Nullable="false" />
+    <Property Name="idMyRole" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CONGEs" Relationship="Self.FK__CONGE__idMySalar__48CFD27E" FromRole="SALARIE" ToRole="CONGE" />
+    <NavigationProperty Name="PANIERs" Relationship="Self.FK__PANIER__idMySala__44FF419A" FromRole="SALARIE" ToRole="PANIER" />
+    <NavigationProperty Name="ROLE" Relationship="Self.FK__SALARIE__idMyRol__3C69FB99" FromRole="SALARIE" ToRole="ROLE" />
+    <NavigationProperty Name="VILLE" Relationship="Self.FK__SALARIE__idMyVil__3D5E1FD2" FromRole="SALARIE" ToRole="VILLE" />
+    <NavigationProperty Name="travailles" Relationship="Self.FK__travaille__idSal__5070F446" FromRole="SALARIE" ToRole="travaille" />
+  </EntityType>
+  <EntityType Name="STOCK">
+    <Key>
+      <PropertyRef Name="idMyMagasin" />
+      <PropertyRef Name="idMyProduit" />
+    </Key>
+    <Property Name="idMyMagasin" Type="Int32" Nullable="false" />
+    <Property Name="idMyProduit" Type="Int32" Nullable="false" />
+    <Property Name="prix" Type="Int32" Nullable="false" />
+    <Property Name="quantiteStock" Type="Int32" Nullable="false" />
+    <Property Name="etatStock" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="contients" Relationship="Self.FK__contient__4BAC3F29" FromRole="STOCK" ToRole="contient" />
+    <NavigationProperty Name="MAGASIN" Relationship="Self.FK__STOCK__idMyMagas__31EC6D26" FromRole="STOCK" ToRole="MAGASIN" />
+    <NavigationProperty Name="PRODUIT" Relationship="Self.FK__STOCK__idMyProdu__32E0915F" FromRole="STOCK" ToRole="PRODUIT" />
+    <NavigationProperty Name="FOURNISSEURs" Relationship="Self.fournit" FromRole="STOCK" ToRole="FOURNISSEUR" />
+  </EntityType>
+  <EntityType Name="travaille">
+    <Key>
+      <PropertyRef Name="idMagasin" />
+      <PropertyRef Name="idSalarie" />
+    </Key>
+    <Property Name="idMagasin" Type="Int32" Nullable="false" />
+    <Property Name="dateDebutContrat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dateFinContrat" Type="DateTime" Precision="0" />
+    <Property Name="idSalarie" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MAGASIN" Relationship="Self.FK__travaille__idMag__4F7CD00D" FromRole="travaille" ToRole="MAGASIN" />
+    <NavigationProperty Name="SALARIE" Relationship="Self.FK__travaille__idSal__5070F446" FromRole="travaille" ToRole="SALARIE" />
+  </EntityType>
+  <EntityType Name="VILLE">
+    <Key>
+      <PropertyRef Name="idVille" />
+    </Key>
+    <Property Name="idVille" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomVille" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codePostal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTs" Relationship="Self.FK__CLIENT__idMyVill__4222D4EF" FromRole="VILLE" ToRole="CLIENT" />
+    <NavigationProperty Name="FOURNISSEURs" Relationship="Self.FK__FOURNISSE__idMyV__37A5467C" FromRole="VILLE" ToRole="FOURNISSEUR" />
+    <NavigationProperty Name="MAGASINs" Relationship="Self.FK__MAGASIN__idMyVil__2F10007B" FromRole="VILLE" ToRole="MAGASIN" />
+    <NavigationProperty Name="SALARIEs" Relationship="Self.FK__SALARIE__idMyVil__3D5E1FD2" FromRole="VILLE" ToRole="SALARIE" />
+  </EntityType>
+  <Association Name="FK__CLIENT__idMyVill__4222D4EF">
+    <End Role="VILLE" Type="Self.VILLE" Multiplicity="1" />
+    <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLE">
+        <PropertyRef Name="idVille" />
+      </Principal>
+      <Dependent Role="CLIENT">
+        <PropertyRef Name="idMyVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PANIER__idMyClie__45F365D3">
+    <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+    <End Role="PANIER" Type="Self.PANIER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="PANIER">
+        <PropertyRef Name="idMyClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONGE__idMySalar__48CFD27E">
+    <End Role="SALARIE" Type="Self.SALARIE" Multiplicity="1" />
+    <End Role="CONGE" Type="Self.CONGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALARIE">
+        <PropertyRef Name="idSalarie" />
+      </Principal>
+      <Dependent Role="CONGE">
+        <PropertyRef Name="idMySalarie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contient__4BAC3F29">
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="1" />
+    <End Role="contient" Type="Self.contient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCK">
+        <PropertyRef Name="idMyMagasin" />
+        <PropertyRef Name="idMyProduit" />
+      </Principal>
+      <Dependent Role="contient">
+        <PropertyRef Name="idMyMagasin" />
+        <PropertyRef Name="idMyProduit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__contient__idComm__4CA06362">
+    <End Role="PANIER" Type="Self.PANIER" Multiplicity="1" />
+    <End Role="contient" Type="Self.contient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PANIER">
+        <PropertyRef Name="idCommande" />
+      </Principal>
+      <Dependent Role="contient">
+        <PropertyRef Name="idCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FOURNISSE__idMyV__37A5467C">
+    <End Role="VILLE" Type="Self.VILLE" Multiplicity="1" />
+    <End Role="FOURNISSEUR" Type="Self.FOURNISSEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLE">
+        <PropertyRef Name="idVille" />
+      </Principal>
+      <Dependent Role="FOURNISSEUR">
+        <PropertyRef Name="idMyVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUIT__idMyGen__2A4B4B5E">
+    <End Role="GENRE" Type="Self.GENRE" Multiplicity="1" />
+    <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENRE">
+        <PropertyRef Name="idGenre" />
+      </Principal>
+      <Dependent Role="PRODUIT">
+        <PropertyRef Name="idMyGenre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAGASIN__idMyVil__2F10007B">
+    <End Role="VILLE" Type="Self.VILLE" Multiplicity="1" />
+    <End Role="MAGASIN" Type="Self.MAGASIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLE">
+        <PropertyRef Name="idVille" />
+      </Principal>
+      <Dependent Role="MAGASIN">
+        <PropertyRef Name="idMyVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STOCK__idMyMagas__31EC6D26">
+    <End Role="MAGASIN" Type="Self.MAGASIN" Multiplicity="1" />
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAGASIN">
+        <PropertyRef Name="idMagasin" />
+      </Principal>
+      <Dependent Role="STOCK">
+        <PropertyRef Name="idMyMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__travaille__idMag__4F7CD00D">
+    <End Role="MAGASIN" Type="Self.MAGASIN" Multiplicity="1" />
+    <End Role="travaille" Type="Self.travaille" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAGASIN">
+        <PropertyRef Name="idMagasin" />
+      </Principal>
+      <Dependent Role="travaille">
+        <PropertyRef Name="idMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PANIER__idMySala__44FF419A">
+    <End Role="SALARIE" Type="Self.SALARIE" Multiplicity="1" />
+    <End Role="PANIER" Type="Self.PANIER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALARIE">
+        <PropertyRef Name="idSalarie" />
+      </Principal>
+      <Dependent Role="PANIER">
+        <PropertyRef Name="idMySalarie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STOCK__idMyProdu__32E0915F">
+    <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUIT">
+        <PropertyRef Name="idProduit" />
+      </Principal>
+      <Dependent Role="STOCK">
+        <PropertyRef Name="idMyProduit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SALARIE__idMyRol__3C69FB99">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+    <End Role="SALARIE" Type="Self.SALARIE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="SALARIE">
+        <PropertyRef Name="idMyRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SALARIE__idMyVil__3D5E1FD2">
+    <End Role="VILLE" Type="Self.VILLE" Multiplicity="1" />
+    <End Role="SALARIE" Type="Self.SALARIE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLE">
+        <PropertyRef Name="idVille" />
+      </Principal>
+      <Dependent Role="SALARIE">
+        <PropertyRef Name="idMyVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__travaille__idSal__5070F446">
+    <End Role="SALARIE" Type="Self.SALARIE" Multiplicity="1" />
+    <End Role="travaille" Type="Self.travaille" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALARIE">
+        <PropertyRef Name="idSalarie" />
+      </Principal>
+      <Dependent Role="travaille">
+        <PropertyRef Name="idSalarie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fournit">
+    <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+    <End Role="FOURNISSEUR" Type="Self.FOURNISSEUR" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="OUATELSEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTs" EntityType="Self.CLIENT" />
+    <EntitySet Name="CONGEs" EntityType="Self.CONGE" />
+    <EntitySet Name="contients" EntityType="Self.contient" />
+    <EntitySet Name="FOURNISSEURs" EntityType="Self.FOURNISSEUR" />
+    <EntitySet Name="GENREs" EntityType="Self.GENRE" />
+    <EntitySet Name="MAGASINs" EntityType="Self.MAGASIN" />
+    <EntitySet Name="PANIERs" EntityType="Self.PANIER" />
+    <EntitySet Name="PRODUITs" EntityType="Self.PRODUIT" />
+    <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
+    <EntitySet Name="SALARIEs" EntityType="Self.SALARIE" />
+    <EntitySet Name="STOCKs" EntityType="Self.STOCK" />
+    <EntitySet Name="travailles" EntityType="Self.travaille" />
+    <EntitySet Name="VILLEs" EntityType="Self.VILLE" />
+    <AssociationSet Name="FK__CLIENT__idMyVill__4222D4EF" Association="Self.FK__CLIENT__idMyVill__4222D4EF">
+      <End Role="VILLE" EntitySet="VILLEs" />
+      <End Role="CLIENT" EntitySet="CLIENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PANIER__idMyClie__45F365D3" Association="Self.FK__PANIER__idMyClie__45F365D3">
+      <End Role="CLIENT" EntitySet="CLIENTs" />
+      <End Role="PANIER" EntitySet="PANIERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONGE__idMySalar__48CFD27E" Association="Self.FK__CONGE__idMySalar__48CFD27E">
+      <End Role="SALARIE" EntitySet="SALARIEs" />
+      <End Role="CONGE" EntitySet="CONGEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contient__4BAC3F29" Association="Self.FK__contient__4BAC3F29">
+      <End Role="STOCK" EntitySet="STOCKs" />
+      <End Role="contient" EntitySet="contients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__contient__idComm__4CA06362" Association="Self.FK__contient__idComm__4CA06362">
+      <End Role="PANIER" EntitySet="PANIERs" />
+      <End Role="contient" EntitySet="contients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FOURNISSE__idMyV__37A5467C" Association="Self.FK__FOURNISSE__idMyV__37A5467C">
+      <End Role="VILLE" EntitySet="VILLEs" />
+      <End Role="FOURNISSEUR" EntitySet="FOURNISSEURs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUIT__idMyGen__2A4B4B5E" Association="Self.FK__PRODUIT__idMyGen__2A4B4B5E">
+      <End Role="GENRE" EntitySet="GENREs" />
+      <End Role="PRODUIT" EntitySet="PRODUITs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAGASIN__idMyVil__2F10007B" Association="Self.FK__MAGASIN__idMyVil__2F10007B">
+      <End Role="VILLE" EntitySet="VILLEs" />
+      <End Role="MAGASIN" EntitySet="MAGASINs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STOCK__idMyMagas__31EC6D26" Association="Self.FK__STOCK__idMyMagas__31EC6D26">
+      <End Role="MAGASIN" EntitySet="MAGASINs" />
+      <End Role="STOCK" EntitySet="STOCKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__travaille__idMag__4F7CD00D" Association="Self.FK__travaille__idMag__4F7CD00D">
+      <End Role="MAGASIN" EntitySet="MAGASINs" />
+      <End Role="travaille" EntitySet="travailles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PANIER__idMySala__44FF419A" Association="Self.FK__PANIER__idMySala__44FF419A">
+      <End Role="SALARIE" EntitySet="SALARIEs" />
+      <End Role="PANIER" EntitySet="PANIERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STOCK__idMyProdu__32E0915F" Association="Self.FK__STOCK__idMyProdu__32E0915F">
+      <End Role="PRODUIT" EntitySet="PRODUITs" />
+      <End Role="STOCK" EntitySet="STOCKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SALARIE__idMyRol__3C69FB99" Association="Self.FK__SALARIE__idMyRol__3C69FB99">
+      <End Role="ROLE" EntitySet="ROLEs" />
+      <End Role="SALARIE" EntitySet="SALARIEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SALARIE__idMyVil__3D5E1FD2" Association="Self.FK__SALARIE__idMyVil__3D5E1FD2">
+      <End Role="VILLE" EntitySet="VILLEs" />
+      <End Role="SALARIE" EntitySet="SALARIEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__travaille__idSal__5070F446" Association="Self.FK__travaille__idSal__5070F446">
+      <End Role="SALARIE" EntitySet="SALARIEs" />
+      <End Role="travaille" EntitySet="travailles" />
+    </AssociationSet>
+    <AssociationSet Name="fournit" Association="Self.fournit">
+      <End Role="STOCK" EntitySet="STOCKs" />
+      <End Role="FOURNISSEUR" EntitySet="FOURNISSEURs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

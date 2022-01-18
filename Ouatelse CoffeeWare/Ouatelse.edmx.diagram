@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="637a0f4b30d64e1bae148bc934b19731" Name="Diagram1">
+        <EntityTypeShape EntityType="OUATELSEModel.CLIENT" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.CONGE" Width="1.5" PointX="10.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.contient" Width="1.5" PointX="8.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.FOURNISSEUR" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.GENRE" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.MAGASIN" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.PANIER" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.PRODUIT" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.ROLE" Width="1.5" PointX="5.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.SALARIE" Width="1.5" PointX="8" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.STOCK" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.travaille" Width="1.5" PointX="8.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OUATELSEModel.VILLE" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="OUATELSEModel.FK__CLIENT__idMyVill__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__PANIER__idMyClie__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__CONGE__idMySalar__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__contient__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__contient__idComm__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__FOURNISSE__idMyV__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__PRODUIT__idMyGen__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__MAGASIN__idMyVil__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__STOCK__idMyMagas__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__travaille__idMag__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__PANIER__idMySala__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__STOCK__idMyProdu__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__SALARIE__idMyRol__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__SALARIE__idMyVil__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.FK__travaille__idSal__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="OUATELSEModel.fournit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
